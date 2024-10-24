@@ -1,16 +1,15 @@
 package org.example.please1;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tutorials")
 public class Tutorial {
+
     @Id
     @Column(name = "id")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -19,23 +18,23 @@ public class Tutorial {
     private String description;
 
     @Column(name = "published")
-    private boolean published;
+    private Boolean published;
 
     public Tutorial() {
 
     }
 
-    public Tutorial(String title, String description, boolean published) {
+    public Tutorial(String title, String description, Boolean published) {
         this.title = title;
         this.description = description;
         this.published = published;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,11 +54,11 @@ public class Tutorial {
         this.description = description;
     }
 
-    public boolean isPublished() {
+    public Boolean isPublished() {
         return published;
     }
 
-    public void setPublished(boolean isPublished) {
+    public void setPublished(Boolean isPublished) {
         this.published = isPublished;
     }
 
